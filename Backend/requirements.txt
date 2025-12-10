@@ -1,0 +1,9 @@
+flask
+flask-cors
+mysql-connector-python
+python-dotenv
+werkzeug
+itsdangerous
+opencv-python
+face-recognition
+openpyxl

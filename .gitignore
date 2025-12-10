@@ -1,0 +1,32 @@
+# General
+.DS_Store
+.idea/
+.vscode/
+
+# Python / Backend
+Backend/venv/
+Backend/__pycache__/
+Backend/*.pyc
+Backend/.env
+Backend/Attendance_Records/*
+!Backend/Attendance_Records/.gitkeep
+Backend/Upload_Folder/*
+!Backend/Upload_Folder/.gitkeep
+
+# Frontend / Flutter
+Frontend/.env
+Frontend/build/
+Frontend/.dart_tool/
+Frontend/android/local.properties
+Frontend/ios/.symlinks/
+
+# Root Level / Misc
+build/
+*.apk
+app-profile.apk
+Student Database/
+
+# Keep documentation images
+!Attendance _App_Screenshots/
+!Backend_images/
+!HOG_images/
