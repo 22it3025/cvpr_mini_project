@@ -639,10 +639,15 @@ def send_attendance_email(rollno, subject_code, date):
         cursor = conn.cursor()
 
         # Fetch student name from students table
-        cursor.execute("SELECT Name FROM students WHERE RollNo = %s", (rollno,))
-        student_name_result = cursor.fetchone()
-        if student_name_result:
-            student_name = student_name_result[0]
+        # Fetch student name and email from students table
+        cursor.execute("SELECT Name, Email FROM students WHERE RollNo = %s", (rollno,))
+        student_result = cursor.fetchone()
+        if student_result:
+            student_name = student_result[0]
+            student_email = student_result[1]
+            if not student_email:
+                print(f"[ERROR] Email ID not found for RollNo: {rollno}")
+                return
         else:
             print(f"Student with rollno {rollno} not found.")
             return
@@ -677,7 +682,7 @@ def send_attendance_email(rollno, subject_code, date):
             conn.close()
 
     # Prepare email content
-    to_email = "22it3025@gmail.com"
+    to_email = student_email
     subject = f"Attendance Confirmation for {subject_name} - {date}"
 
     # 📧 HTML email body
